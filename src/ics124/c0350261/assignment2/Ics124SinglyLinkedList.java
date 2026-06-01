@@ -42,8 +42,6 @@ public class Ics124SinglyLinkedList<T> implements Ics124List<T> {
         }
         return current;
     }
-    
-    
 
     @Override
     public void set(int i, T x) {
@@ -54,33 +52,46 @@ public class Ics124SinglyLinkedList<T> implements Ics124List<T> {
     @Override
     public void add(int i, T x) {
         if (i > n || i < 0) { throw new IndexOutOfBoundsException(); }
-        else if (n == 0) {
-            SLNode node = makeNode(x);
-            head = tail = node;
-            n++;
+
+        SLNode newNode = makeNode(x);     
+        if (n == 0) {
+            head = tail = newNode;
             //NOT assigning value to next as there is no next to reference
+        } else if (i == 0) { 
+            newNode.next = head;
+            head = newNode;
         } else { 
-            //ASSIGN posn of new node to next of prev & make next w/ value of x
-           SLNode prevNode = getNode( i-2 );
-//            SLNode prevNode = head;
-//            for ( int j = 0 ; j < i - 1 ; j++ ) {
-//                System.out.println("Before Iteration position: " + j + " NodeValue: " + prevNode.x + " NextNode: " + prevNode.next);
-//                prevNode = prevNode.next;
-//                System.out.println("After Iteration position: " + j + " NodeValue: " + prevNode.x + " NextNode: " + prevNode.next);
-//            }
-            SLNode newNode = makeNode(x);
+            SLNode prevNode = getNode( i-1 );
             newNode.next = prevNode.next;
             prevNode.next = newNode;
-            n++;
+            if (i == n) { tail = newNode; }          
         }
+        n++;
     }
 
     @Override
     public T remove(int i) {
+ 
         if (i > n || i < 0) { throw new IndexOutOfBoundsException(); }
-//        else if (i == 0) { head = this new node }
-        else {
-            
+        
+        SLNode currNode;
+        if (i == 0) {
+            currNode = head;
+            head = head.next;
         }
+        else {
+            //set tail to prevNode, and prevNode.next to Null
+            SLNode prevNode = getNode(i - 1);
+            currNode = prevNode.next; 
+                if (i == n) {
+                    tail = prevNode;
+                    prevNode.next = null;
+                } else {
+                    SLNode nextNode = currNode.next;
+                    prevNode.next = nextNode;
+                }
+        }
+        n--;        
+        return currNode.x;
     }
 }
