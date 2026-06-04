@@ -80,6 +80,7 @@ public class Ics124SinglyLinkedList<T> implements Ics124List<T> {
         if (i == 0) {
             currNode = head;
             head = head.next;
+            if(n == 1) { tail = null; }
         } else {
             //set tail to prevNode, and prevNode.next to Null
             SLNode prevNode = getNode(i - 1);
