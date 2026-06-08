@@ -26,6 +26,10 @@ public class Ics124DoublyLinkedList<T> implements Ics124List<T> {
     
     private DLNode getNode(int i) {
         if (i < 0 || i >= n) { throw new IndexOutOfBoundsException(); } //i=n doesn't exist
+        else if ( i == n-1 ) { 
+            DLNode current = boundary.prev; 
+            return current;
+        }
         else {
             DLNode current = boundary.next;
             for ( int j = 0 ; j < i ; j++ ) {
@@ -37,7 +41,7 @@ public class Ics124DoublyLinkedList<T> implements Ics124List<T> {
     
     @Override
     public int size() {
-        throw new UnsupportedOperationException("write me!");
+        return n;
     }
 
     @Override
@@ -45,29 +49,15 @@ public class Ics124DoublyLinkedList<T> implements Ics124List<T> {
 
     @Override
     public void set(int i, T x) {
-        throw new UnsupportedOperationException("write me!");
+        if (i == n) { add(i, x); }
+        else { getNode(i).x = x; }
     }
+ 
 
     @Override
     public void add(int i, T x) {
         if (i < 0 || i > n) { throw new IndexOutOfBoundsException(); } //accepts i = 0 & i = n
 
-//        DLNode current = makeNode(x);
-//        if (i == 0) { 
-//            current.next = boundary.next;
-//            current.prev = boundary;
-//            boundary.next = current;
-//        } else if (i == n) {
-//            current.next = boundary;
-//            current.prev = boundary.prev;
-//            boundary.prev = current;
-//        } else {
-//            DLNode prevNode = getNode(i-1);
-//            DLNode nextNode = getNode(i);
-//            current.next = nextNode;
-//            current.prev = prevNode;
-//            nextNode.prev = current;
-//            prevNode.next = current;
         DLNode current = makeNode(x);
         DLNode prevNode;
         DLNode nextNode;
@@ -81,15 +71,28 @@ public class Ics124DoublyLinkedList<T> implements Ics124List<T> {
             prevNode = getNode(i-1);
             nextNode = getNode(i);
         }
-            current.prev = prevNode;
-            current.next = nextNode;
-            nextNode.prev = current;
-            prevNode.next = current;
+        current.prev = prevNode;
+        current.next = nextNode;
+        nextNode.prev = current;
+        prevNode.next = current;
+        n++;
     }       
 
     @Override
     public T remove(int i) {
-        throw new UnsupportedOperationException("write me!");
+        if (i < 0 || i >= n) { throw new IndexOutOfBoundsException(); } //accepts i = 0 & i = n
+        else {
+            DLNode currNode = getNode(i);
+// because maintaining the boundary node the links to the BN should remain - so 
+// doesnt matter which posn being removed, .next & .prev will be correct one
+            DLNode prevNode;
+            DLNode nextNode;     
+                prevNode = currNode.prev;
+                nextNode = currNode.next;
+            prevNode.next = currNode.next;
+            nextNode.prev = currNode.prev;
+            n--;
+        return currNode.x; //
+        }
     }
-    
 }
