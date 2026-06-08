@@ -1,25 +1,33 @@
 package ics124.c0350261.assignment3;
+
 import ics124.assignment3.*;
 
 public class StackUsingArray implements Ics124Stack {
+
     private Integer[] data;
     private int used;
 
     public StackUsingArray(int capacity) {
         throw new UnsupportedOperationException("write me!");
     }
+
     public StackUsingArray() {
-        throw new UnsupportedOperationException("write me!");
-    }
-    
-    @Override
-    public boolean isEmpty() {
         throw new UnsupportedOperationException("write me!");
     }
 
     @Override
+    public boolean isEmpty() {
+        System.out.println("isEmpty Check");
+        if ( used == 0 ) { return true; }
+        else { return false; }
+    }
+
+    @Override
     public boolean isFull() {
-        throw new UnsupportedOperationException("write me!");
+        System.out.println("isFull Check");
+        System.out.println("data.length: " + data.length + " used: " + used);
+        if ( used == data.length ) { return true; }
+        else { return false; }
     }
 
     @Override
@@ -39,7 +47,7 @@ public class StackUsingArray implements Ics124Stack {
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("write me!");
+        return used;
     }
-    
+
 }
