@@ -14,9 +14,7 @@ public class StackUsingArray implements Ics124Stack {
     
     @Override
     public boolean isEmpty() {
-        if ( used == 0 ) { return true; }
-        else { return false; }
-//        throw new UnsupportedOperationException("write me!");
+        throw new UnsupportedOperationException("write me!");
     }
 
     @Override
@@ -41,7 +39,7 @@ public class StackUsingArray implements Ics124Stack {
 
     @Override
     public int size() {
-        return used;
+        throw new UnsupportedOperationException("write me!");
     }
     
 }
