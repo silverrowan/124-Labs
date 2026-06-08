@@ -10,7 +10,7 @@ public class Assignment3Marking {
     
     @Test
     public void testEmptyArrayStack() {
-        Ics124Stack s = new StackUsingArray();
+        Ics124Stack s = new StackUsingList();
         assertTrue(s.isEmpty());
         assertFalse(s.isFull());
         assertThrows(StackUnderflowException.class, () -> s.peek());
@@ -26,7 +26,7 @@ public class Assignment3Marking {
     }
     @Test
     public void testArrayStackOverflow() {
-        Ics124Stack s = new StackUsingArray(1);
+        Ics124Stack s = new StackUsingArray(1); // Irrelevant to Lists
         s.push(123);
         assertTrue(s.isFull());
         assertThrows(StackOverflowException.class, () -> s.push(456));
@@ -36,7 +36,7 @@ public class Assignment3Marking {
     }
     @Test
     public void testArrayPushPopOrdering() {
-        Ics124Stack s = new StackUsingArray();
+        Ics124Stack s = new StackUsingList();
         
         s.push(123);
         s.push(456);
