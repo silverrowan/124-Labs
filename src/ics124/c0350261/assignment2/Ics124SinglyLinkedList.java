@@ -75,17 +75,18 @@ public class Ics124SinglyLinkedList<T> implements Ics124List<T> {
     @Override
     public T remove(int i) { 
         if (i >= n || i < 0) { throw new IndexOutOfBoundsException(); }
-        
         SLNode currNode;
         if (i == 0) {
             currNode = head;
             head = head.next;
-            if(n == 1) { tail = null; }
+            if(n == 1) {
+                tail = null; 
+            }
         } else {
             //set tail to prevNode, and prevNode.next to Null
             SLNode prevNode = getNode(i - 1);
             currNode = prevNode.next; 
-            if (i == n) {
+            if (i == n-1) {
                 tail = prevNode;
                 prevNode.next = null;
             } else {
