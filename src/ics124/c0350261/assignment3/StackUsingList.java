@@ -1,18 +1,17 @@
 package ics124.c0350261.assignment3;
+import ics124.c0350261.assignment2.Ics124SinglyLinkedList;
 
 public class StackUsingList implements Ics124Stack {
-
-    private Integer[] data;
+    private Ics124SinglyLinkedList data;
     private int used;
 
     public StackUsingList(int capacity) {
-        data = new Integer[capacity];
+        data = new Ics124SinglyLinkedList();
         used = 0;
     }
 
     public StackUsingList() {
-        data = new Integer[10];
-        used = 0;
+        this(10);
     }
 
     @Override
@@ -25,9 +24,8 @@ public class StackUsingList implements Ics124Stack {
     @Override
     public boolean isFull() {
         System.out.println("isFull Check");
-        System.out.println("data.length: " + data.length + " used: " + used);
-        if ( used == data.length ) { return true; }
-        else { return false; }
+        System.out.println("data.length: " + data.size() + " used: " + used);
+        return false;
     }
 
     @Override
@@ -35,7 +33,8 @@ public class StackUsingList implements Ics124Stack {
         if (used == 0) { 
             throw new StackUnderflowException("The stack is empty");
         } else {
-            return data[used - 1];
+            System.out.println("peek returns: " + data.get(used - 1));
+            return (Integer) data.get(used - 1);
         }
     }
 
@@ -47,22 +46,20 @@ public class StackUsingList implements Ics124Stack {
 //            decrements used then
 //            uses decreased used value to find the final value 
 //            (used starts at 1, index starts at 0 
-            int popVal = data[--used];
-            data[used] = 0; //sets 'popped' position back to default
+            Integer popVal = (Integer) data.get(--used);
+            data.set(used, 0);
+            //sets 'popped' position back to default
             return popVal;
         }
     }
 
     @Override
     public void push(Integer a) {
-        if (used == this.data.length) {
-            throw new StackOverflowException("The stack is full!");
-        } else {
-            data[used] = a;
+            data.set(used, a);
             used ++;
         }
 //        throw new UnsupportedOperationException("write me!");
-    }
+    
 
     @Override
     public int size() {
