@@ -1,4 +1,4 @@
-package ics124.assignment3;
+package ics124.c0350261.assignment3;
 
 public class Ics124StackException extends RuntimeException {
     public Ics124StackException() { super(); }

@@ -1,18 +1,18 @@
 package ics124.c0350261.assignment3;
 
-import ics124.assignment3.*;
-
 public class StackUsingArray implements Ics124Stack {
 
     private Integer[] data;
     private int used;
 
     public StackUsingArray(int capacity) {
-        throw new UnsupportedOperationException("write me!");
+        data = new Integer[capacity];
+        used = 0;
     }
 
     public StackUsingArray() {
-        throw new UnsupportedOperationException("write me!");
+        data = new Integer[10];
+        used = 0;
     }
 
     @Override
@@ -32,17 +32,36 @@ public class StackUsingArray implements Ics124Stack {
 
     @Override
     public Integer peek() {
-        throw new UnsupportedOperationException("write me!");
+        if (used == 0) { 
+            throw new StackUnderflowException("The stack is empty");
+        } else {
+            return data[used - 1];
+        }
     }
 
     @Override
     public Integer pop() {
-        throw new UnsupportedOperationException("write me!");
+        if (used == 0) { 
+            throw new StackUnderflowException("The stack is empty");
+        } else { 
+//            decrements used then
+//            uses decreased used value to find the final value 
+//            (used starts at 1, index starts at 0 
+            int popVal = data[--used];
+            data[used] = 0; //sets 'popped' position back to default
+            return popVal;
+        }
     }
 
     @Override
     public void push(Integer a) {
-        throw new UnsupportedOperationException("write me!");
+        if (used == this.data.length) {
+            throw new StackOverflowException("The stack is full!");
+        } else {
+            data[used] = a;
+            used ++;
+        }
+//        throw new UnsupportedOperationException("write me!");
     }
 
     @Override
