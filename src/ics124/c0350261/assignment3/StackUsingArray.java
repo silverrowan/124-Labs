@@ -6,13 +6,12 @@ public class StackUsingArray implements Ics124Stack {
     private int used;
 
     public StackUsingArray(int capacity) {
-        data = new Integer[capacity];
-        used = 0;
+        this.data = new Integer[capacity];
+        this.used = 0;
     }
 
     public StackUsingArray() {
-        data = new Integer[10];
-        used = 0;
+        this(10);
     }
 
     @Override
