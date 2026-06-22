@@ -15,7 +15,7 @@ public class StackUsingList implements Ics124Stack {
 //    }
 
         public StackUsingList() {
-//        data = new Ics124SinglyLinkedList<>();
+        data = new Ics124SinglyLinkedList<>();
     }
     
     @Override
