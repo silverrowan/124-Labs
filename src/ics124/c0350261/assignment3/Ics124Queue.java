@@ -11,7 +11,7 @@ public class Ics124Queue<E> {
     Ics124DoublyLinkedList<E> queue;
 
     public Ics124Queue() {
-        Ics124DoublyLinkedList queue = new Ics124DoublyLinkedList();
+        queue = new Ics124DoublyLinkedList<E>();
     }
 
     public void enqueue(E e) {
@@ -23,7 +23,7 @@ public class Ics124Queue<E> {
     } //remove from head
 
     public E first() {
-        return queue.get(0);
+        return queue.get(0); //return value of  head (#1 in queue)
     }
 
     public boolean isEmpty() {
