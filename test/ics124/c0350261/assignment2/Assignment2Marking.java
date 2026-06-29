@@ -299,5 +299,33 @@ public class Assignment2Marking {
     public void testRemoveOutOfBoundsIsErrorDll() {
         assertThrows(IndexOutOfBoundsException.class, () -> dll.remove(0));
     }  
-
+//    @Test
+//    public void testRemoveFirstDll(){
+//        System.out.println("STARTING REMOVE FIRST TEST");
+//        System.out.println("initial size: " + dll.size());
+//        dll.add(0,123);
+//        dll.add(0,456);
+//        
+//        assertEquals(2, dll.size());
+//        assertEquals((Integer) 456, dll.removeFirst());
+//        assertEquals((Integer) 123, dll.get(0));
+//        assertEquals((Integer) 123, dll.removeFirst());
+//        assertEquals(0, dll.size());
+//        assertThrows(IndexOutOfBoundsException.class, () -> dll.removeFirst());         
+//    }
+//    
+//    @Test
+//    public void testRemoveLastDll(){
+//        System.out.println("STARTING REMOVE LAST TEST");
+//        System.out.println("initial size: " + dll.size());
+//        dll.add(0,123);
+//        dll.add(0,456);
+//        
+//        assertEquals(2, dll.size());
+//        assertEquals((Integer) 123, dll.removeLast());
+//        assertEquals((Integer) 456, dll.get(0));
+//        assertEquals((Integer) 456, dll.removeLast());
+//        assertEquals(0, dll.size());
+//        assertThrows(IndexOutOfBoundsException.class, () -> dll.removeLast());
+//    }
 }

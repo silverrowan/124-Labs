@@ -3,24 +3,14 @@ import ics124.c0350261.assignment2.Ics124SinglyLinkedList;
 
 public class StackUsingList implements Ics124Stack {
     private Ics124SinglyLinkedList<Integer> data;
-//    private int used;
-
-//    public StackUsingList(int capacity) {
-//        data = new Ics124SinglyLinkedList();
-////        used = 0;
-//    }
-
-//    public StackUsingList() {
-//        this(10);
-//    }
+    private int used;
 
         public StackUsingList() {
-//        data = new Ics124SinglyLinkedList<>();
+        data = new Ics124SinglyLinkedList<>();
     }
     
     @Override
     public boolean isEmpty() {
-        System.out.println("isEmpty Check");
         if ( data.size() == 0 ) { return true; }
         else { return false; }
     }
@@ -44,6 +34,7 @@ public class StackUsingList implements Ics124Stack {
         if (data.size() == 0) { 
             throw new StackUnderflowException("The stack is empty");
         } else {
+            used --;
             return (Integer) data.remove(0);
         }
     }
@@ -51,6 +42,7 @@ public class StackUsingList implements Ics124Stack {
     @Override
     public void push(Integer a) {
             data.add(0, a);
+            used++;
         }    
 
     @Override

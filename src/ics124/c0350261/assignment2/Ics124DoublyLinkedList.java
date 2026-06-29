@@ -5,7 +5,6 @@ import ics124.c0350261.assignment2.Ics124List;
 public class Ics124DoublyLinkedList<T> implements Ics124List<T> {
 
     final class DLNode {
-
         T x;
         DLNode prev, next;
     };
@@ -105,6 +104,32 @@ public class Ics124DoublyLinkedList<T> implements Ics124List<T> {
             nextNode.prev = currNode.prev;
             n--;
             return currNode.x; //
+        }
+    }
+
+    public T removeFirst(){
+        if (n == 0) { throw new IndexOutOfBoundsException();}
+        else {
+            DLNode prevHead = boundary.next;
+            DLNode newHead = prevHead.next;    
+
+            boundary.next = newHead;
+            newHead.prev = boundary;
+            n--;
+            return prevHead.x;
+        }
+    }
+    
+    public T removeLast(){
+        if (n == 0) { throw new IndexOutOfBoundsException();}
+        else {
+            DLNode prevTail = boundary.prev;
+            DLNode newTail = prevTail.prev;
+
+            boundary.prev = newTail;
+            newTail.next = boundary;
+            n--;
+            return prevTail.x;
         }
     }
 }
