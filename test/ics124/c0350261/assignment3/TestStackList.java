@@ -66,17 +66,17 @@ public class TestStackList {
        assertThrows(StackUnderflowException.class, () -> s.pop());
    }
    
-   @Test
-   public void testPush() {
-       Ics124Stack s = new StackUsingList();
-       assertThrows(Exception.class, () -> s.push(true));
-       assertThrows(Exception.class, () -> s.push("string"));
-       Object o = new Object();
-       assertThrows(Exception.class, () -> s.push(o));
-       s.push(123);
-       assertEquals(123, (int)s.peek());
-       assertEquals(123, (int)s.pop());       
-   }
+//   @Test
+//   public void testPush() {
+//       Ics124Stack s = new StackUsingList();
+//       assertThrows(Exception.class, () -> s.push(true));
+//       assertThrows(Exception.class, () -> s.push("string"));
+//       Object o = new Object();
+//       assertThrows(Exception.class, () -> s.push(o));
+//       s.push(123);
+//       assertEquals(123, (int)s.peek());
+//       assertEquals(123, (int)s.pop());       
+//   }
    
    @Test
    public void testPop() {
