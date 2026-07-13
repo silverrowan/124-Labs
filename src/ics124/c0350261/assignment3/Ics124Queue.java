@@ -11,7 +11,7 @@ public class Ics124Queue<E> {
     Ics124DoublyLinkedList<E> queue;
 
     public Ics124Queue() {
-        queue = new Ics124DoublyLinkedList<E>();
+        queue = new Ics124DoublyLinkedList<>();
     }
 
     public void enqueue(E e) {

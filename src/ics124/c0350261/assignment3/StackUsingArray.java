@@ -17,21 +17,27 @@ public class StackUsingArray implements Ics124Stack {
     @Override
     public boolean isEmpty() {
         System.out.println("isEmpty Check");
-        if ( used == 0 ) { return true; }
-        else { return false; }
+        if (used == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public boolean isFull() {
         System.out.println("isFull Check");
         System.out.println("data.length: " + data.length + " used: " + used);
-        if ( used == data.length ) { return true; }
-        else { return false; }
+        if (used == data.length) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public Integer peek() {
-        if (used == 0) { 
+        if (used == 0) {
             throw new StackUnderflowException("The stack is empty");
         } else {
             return data[used - 1];
@@ -40,9 +46,9 @@ public class StackUsingArray implements Ics124Stack {
 
     @Override
     public Integer pop() {
-        if (used == 0) { 
+        if (used == 0) {
             throw new StackUnderflowException("The stack is empty");
-        } else { 
+        } else {
 //            decrements used then
 //            uses decreased used value to find the final value 
 //            (used starts at 1, index starts at 0 
@@ -58,7 +64,7 @@ public class StackUsingArray implements Ics124Stack {
             throw new StackOverflowException("The stack is full!");
         } else {
             data[used] = a;
-            used ++;
+            used++;
         }
 //        throw new UnsupportedOperationException("write me!");
     }

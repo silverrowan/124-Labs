@@ -37,6 +37,7 @@ public class TestQueue {
        s.enqueue(159);
        s.enqueue(48);
        assertEquals(48, (int)s.first());
+       assertEquals(48, (int)s.first());
        assertEquals(48, (int)s.dequeue());
        assertEquals(159, (int)s.first());
        assertEquals(159, (int)s.dequeue());
@@ -72,7 +73,7 @@ public class TestQueue {
 //   public void testEnqueue() {
 //       System.out.println("ENQUEUE TEST");
 //       Ics124Queue<Integer> s = new Ics124Queue<>();
-//       
+       
 //       assertThrows(Exception.class, () -> s.enqueue(true));
 //       System.out.println("BOOL done");
 //       assertThrows(Exception.class, () -> s.enqueue("string"));

@@ -1,4 +1,5 @@
 package ics124.c0350261.assignment4;
+
 import ics124.assignment4.BstIllegalOperationException;
 import ics124.assignment4.BstNode;
 import ics124.assignment4.BstMissingKeyException;
@@ -7,7 +8,6 @@ import ics124.assignment4.BstBase;
 import ics124.assignment4.*;
 
 public class BinarySearchTree<T extends Comparable<T>> extends BstBase<T> {
-    
     BstNode root;
     private int nodeCount;
     private int levelsDeep;
@@ -27,20 +27,23 @@ public class BinarySearchTree<T extends Comparable<T>> extends BstBase<T> {
      * @throws BstDuplicateKeyException when the value already exists
      */
     @Override
-    public BstNode<T> insert(BstNode<T> node, T k) throws BstDuplicateKeyException {
-        if (nodeCount == 0) {
+    public BstNode<T> insert(BstNode<T> node, T k) throws BstDuplicateKeyException {       
+        if (nodeCount == 0) { 
             root = makeTreeNode(k);
             nodeCount++;
-        } else if ( node.x.compareTo(k) == 0 ) { throw new BstDuplicateKeyException("Value Already Exists"); 
-        } else if ( node.x.compareTo(k) > 0 ) {
-            node.left = insert(node.left, k);
+        } 
+        else if ( node.x.compareTo(k) == 0 ) { throw new BstDuplicateKeyException("Value Already Exists"); }
+        else if ( node.x.compareTo(k) > 0 ) {
+            node.left = insert(node.left, k); 
             node.left.parent = node;
         } else { // x < k
-            node.right = insert(node.right, k);
+            node.right = insert(node.right, k); 
             node.right.parent = node;
         }
         return node;
     }
+
+
 
     /**
      * Delete a node from the tree
@@ -113,6 +116,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BstBase<T> {
             child.parent = cParent;
         }
     }
+
 
     /**
      * Perform a left rotation of a tree
