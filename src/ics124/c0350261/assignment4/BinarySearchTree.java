@@ -56,22 +56,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BstBase<T> {
     @Override
     public BstNode delete(BstNode<T> node, T k) throws BstMissingKeyException {
         BstNode target = find(k); // this doesnt ever seem to report not finding value....
-//        BstNode parent = target.parent;
-//        if ( target.left == null && target.right == null ) {
-//            if ( parent == null ) { root = null; }
-//            if (parent.right == target) { parent.right = null; }
-//            else { parent.left = null; }
-//            nodeCount--;
-//        } else if ( target.left == null ) {
-//            if ( parent == null ) { root = target.right; }
-//            else if ( parent.left == target ) { parent.left = target.right; }
-//            else { parent.right = target.right; } // if target is in right arm of parent
-//        } else if (target.right ==  null ) {
-//            if ( parent == null ) { root = target.left; }
-//            else if ( parent.left == target ) { parent.left = target.left; }
-//            else { parent.right = target.left; }
-//        } else { //target right and left are populated
-//            if ( parent.left == target ) {}
+
         try {
             if (target.left == null || target.right == null) {
                 splice(target);
